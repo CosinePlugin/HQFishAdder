@@ -14,21 +14,16 @@ class FishRepository(private val file: CustomConfig) {
 
     @Suppress("unchecked_cast")
     fun load() {
-        if (!config.contains("fish")) return
-        fishes.addAll(config.getList("fish") as MutableList<ItemStack>)
+        if (!config.contains("fishes")) return
+        fishes.addAll(config.getList("fishes") as MutableList<ItemStack>)
     }
 
     fun save() {
         async {
-            config.set("fish", fishes)
+            config.set("fishes", fishes)
             file.saveConfig()
             isChanged = false
         }
-    }
-
-    fun reload() {
-        file.reloadConfig()
-        load()
     }
 
     fun contains(item: ItemStack): Boolean {

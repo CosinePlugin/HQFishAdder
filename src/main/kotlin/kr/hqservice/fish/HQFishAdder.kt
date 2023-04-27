@@ -2,6 +2,7 @@ package kr.hqservice.fish
 
 import kr.hqservice.fish.bststs.Metrics
 import kr.hqservice.fish.command.FishAdminCommand
+import kr.hqservice.fish.listener.FishInventoryListener
 import kr.hqservice.fish.listener.FishListener
 import kr.hqservice.fish.repository.FishRepository
 import kr.hqservice.fish.util.CustomConfig
@@ -29,9 +30,10 @@ class HQFishAdder : JavaPlugin() {
         fishRepository = FishRepository(fishFile)
         fishRepository.load()
 
+        server.pluginManager.registerEvents(FishInventoryListener(), this)
         server.pluginManager.registerEvents(FishListener(this), this)
 
-        getCommand("낚시관리").executor = FishAdminCommand(this)
+        getCommand("낚시관리")?.setExecutor(FishAdminCommand(this))
     }
 
     override fun onDisable() {

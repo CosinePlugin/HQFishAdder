@@ -78,6 +78,7 @@ class FishInventory(plugin: HQFishAdder) : FishInventoryHolder("낚시 : 물고�
     }
 
     private fun InventoryClickEvent.pageController(player: Player) {
+        val slot = rawSlot
         if (slot in 45..53) isCancelled = true
         when (slot) {
             45 -> {

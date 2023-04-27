@@ -11,11 +11,11 @@ internal object InventoryUtils {
 
     val air = ItemStack(Material.AIR)
 
-    val background = ItemStack(Material.STAINED_GLASS_PANE, 1, 1).setDisplayName("§f")
+    val background = ItemStack(Material.LEGACY_STAINED_GLASS_PANE, 1, 0).setDisplayName("§f")
 
-    val beforePageButton = ItemStack(Material.STAINED_GLASS_PANE, 1, 14).setDisplayName("§c이전 페이지로 이동")
+    val beforePageButton = ItemStack(Material.LEGACY_STAINED_GLASS_PANE, 1, 14).setDisplayName("§c이전 페이지로 이동")
 
-    val nextPageButton = ItemStack(Material.STAINED_GLASS_PANE, 1, 13).setDisplayName("§a다음 페이지로 이동")
+    val nextPageButton = ItemStack(Material.LEGACY_STAINED_GLASS_PANE, 1, 13).setDisplayName("§a다음 페이지로 이동")
 
     fun Inventory.setItem(range: IntRange, item: ItemStack) {
         range.forEach { setItem(it, item) }
