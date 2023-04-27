@@ -1,0 +1,14 @@
+name: HQFishAdder
+version: 1.0
+api-version: 1.13
+main: kr.hqservice.fish.HQFishAdder
+authors: [ Cosine_A ]
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:1.8.0
+softdepend:
+  - MS-Core
+
+commands:
+  낚시관리:
+    permission: op
+    description: 낚시 관리 관련 명령어입니다.
