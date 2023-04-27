@@ -22,7 +22,6 @@ class FishInventory(plugin: HQFishAdder) : FishInventoryHolder("낚시 : 물고�
 
     override fun prevInit(inventory: Inventory) {
         inventory.setItem(45, InventoryUtils.beforePageButton)
-        inventory.setItem(46..52, InventoryUtils.background)
         inventory.setItem(53, InventoryUtils.nextPageButton)
     }
 
