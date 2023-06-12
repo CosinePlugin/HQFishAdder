@@ -1,15 +1,14 @@
 package kr.hqservice.fish.listener
 
-import kr.hqservice.fish.HQFishAdder
+import kr.hqservice.fish.repository.FishRepository
 import org.bukkit.entity.Item
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerFishEvent
 
-class FishListener(plugin: HQFishAdder) : Listener {
-
-    private val fishRepository = plugin.fishRepository
-    private val fishes = fishRepository.getFishes()
+class FishListener(
+    private val fishRepository: FishRepository
+) : Listener {
 
     @EventHandler
     fun onFishing(event: PlayerFishEvent) {
@@ -18,8 +17,8 @@ class FishListener(plugin: HQFishAdder) : Listener {
         val caught = event.caught
         if (caught !is Item) return
 
-        if (fishes.isEmpty()) return
+        if (fishRepository.isEmpty()) return
 
-        caught.itemStack = fishes.random()
+        caught.itemStack = fishRepository.getFish()
     }
 }

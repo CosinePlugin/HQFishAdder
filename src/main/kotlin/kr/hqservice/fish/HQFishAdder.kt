@@ -1,6 +1,5 @@
 package kr.hqservice.fish
 
-import kr.hqservice.fish.bststs.Metrics
 import kr.hqservice.fish.command.FishAdminCommand
 import kr.hqservice.fish.listener.FishInventoryListener
 import kr.hqservice.fish.listener.FishListener
@@ -24,16 +23,14 @@ class HQFishAdder : JavaPlugin() {
     }
 
     override fun onEnable() {
-        Metrics(this, 18264)
-
-        val fishFile = CustomConfig(this, "fishes.yml")
+        val fishFile = CustomConfig(this, "config.yml")
         fishRepository = FishRepository(fishFile)
         fishRepository.load()
 
         server.pluginManager.registerEvents(FishInventoryListener(), this)
-        server.pluginManager.registerEvents(FishListener(this), this)
+        server.pluginManager.registerEvents(FishListener(fishRepository), this)
 
-        getCommand("낚시관리")?.setExecutor(FishAdminCommand(this))
+        getCommand("낚시관리")?.setExecutor(FishAdminCommand(fishRepository))
     }
 
     override fun onDisable() {
