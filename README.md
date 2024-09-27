@@ -17,6 +17,7 @@
 * /물고기관리
 
 ## 이벤트
+* 물고기를 잡았을 때 발동되는 이벤트입니다.
 ```java
 public class FishListener implements Listener {
     @EventHandler
