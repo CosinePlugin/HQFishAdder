@@ -15,3 +15,36 @@
 
 ## 관리자 명령어
 * /물고기관리
+
+## 이벤트
+```java
+public class FishListener implements Listener {
+    @EventHandler
+    public void onHQFishCaught(HQFishCaughtEvent event) {
+        ItemStack fish = event.getFish();
+        String fishDisplayName = event.getFishDisplayName();
+        double chance = event.getChance();
+    }
+}
+```
+
+```kotlin
+class FishListener : Listener {
+    @EventHandler
+    fun onHQFishCaught(event: HQFishCaughtEvent) {
+        val fish = event.fish
+        val fishDisplayName = event.fishDisplayName
+        val chance = event.chance
+    }
+}
+```
+
+```yml
+import:
+    kr.cosine.fishadder.event.HQFishCaughtEvent
+    
+on HQFishCaughtEvent:
+    set {_fish} to event.getFish() # ItemStack (아이템)
+    set {_fishDisplayName} to event.getFishDisplayName() # String (아이템 이름)
+    set {_chance} to event.getChance() # Double (확률)
+```
