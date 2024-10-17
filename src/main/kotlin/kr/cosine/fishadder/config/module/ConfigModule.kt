@@ -9,7 +9,6 @@ import kr.hqservice.framework.bukkit.core.component.module.Teardown
 class ConfigModule(
     private val fishConfig: FishConfig
 ) {
-
     @Setup
     fun setup() {
         fishConfig.load()

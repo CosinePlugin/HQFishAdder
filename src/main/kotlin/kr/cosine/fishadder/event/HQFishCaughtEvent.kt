@@ -11,6 +11,9 @@ class HQFishCaughtEvent(
     val fishDisplayName: String,
     val chance: Double
 ) : PlayerEvent(who) {
+    override fun getHandlers(): HandlerList {
+        return getHandlerList()
+    }
 
     companion object {
         private val handlers = HandlerList()
@@ -19,9 +22,5 @@ class HQFishCaughtEvent(
         fun getHandlerList(): HandlerList {
             return handlers
         }
-    }
-
-    override fun getHandlers(): HandlerList {
-        return getHandlerList()
     }
 }

@@ -7,7 +7,6 @@ import org.bukkit.inventory.ItemStack
 class FishItemStack(
     private val itemStack: ItemStack
 ) {
-
     private val tag get() = itemStack.getNmsItemStack().getTag()
 
     private var chance = tag.getDouble(CHANCE_KEY)

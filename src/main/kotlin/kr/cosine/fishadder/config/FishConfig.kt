@@ -16,7 +16,6 @@ class FishConfig(
     plugin: Plugin,
     private val fishItemStackRegistry: FishItemStackRegistry
 ) {
-
     private val file = File(plugin.dataFolder, "fish.yml")
     private val config = YamlConfiguration.loadConfiguration(file)
 

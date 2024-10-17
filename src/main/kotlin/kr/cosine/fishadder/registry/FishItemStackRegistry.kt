@@ -5,7 +5,6 @@ import kr.hqservice.framework.global.core.component.Bean
 
 @Bean
 class FishItemStackRegistry {
-
     private val _fishItemStacks = mutableListOf<FishItemStack>()
     val fishItemStacks: List<FishItemStack> get() = _fishItemStacks
 

@@ -10,7 +10,6 @@ import kotlin.random.Random
 class FishService(
     private val fishItemStackRegistry: FishItemStackRegistry
 ) {
-
     private val random: Random = Random
 
     fun findFishItemStackByChance(): FishItemStack? {

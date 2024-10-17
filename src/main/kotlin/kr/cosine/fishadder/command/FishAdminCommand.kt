@@ -14,7 +14,6 @@ class FishAdminCommand(
     private val fishConfig: FishConfig,
     private val fishViewService: FishViewService
 ) {
-
     @CommandExecutor("설정", "물고기 설정 화면을 오픈합니다.", priority = 1)
     fun openFishView(player: Player) {
         fishViewService.openFishSettingView(player)
